@@ -1,0 +1,2806 @@
+Delivered-To: swapnil.a.g476@gmail.com
+Received: by 2002:a05:651c:3145:b0:378:cf36:6d44 with SMTP id k5csp1863919ljd;
+        Sun, 9 Nov 2025 11:03:48 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFVfqUC6olH+rDZORyJObMERq6wlratGyvVAb0Iw1PWZeujCIvbsMI/kCW5EnZ6NmN+QSxy
+X-Received: by 2002:a17:902:f601:b0:295:915d:1eed with SMTP id d9443c01a7336-297e56d0e7dmr76899745ad.47.1762715028410;
+        Sun, 09 Nov 2025 11:03:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1762715028; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WR1KZfljRnuaX+f/h8AbQJEryZu+b55QIvTmeyDjeCyRLApGwtBrk6wRbQtn3xE+BI
+         6u+Ci+ELC3dswtDv5s7YCEUQKf15c7YEHSS4IRHn4sa33eV5JqWI/+6K72DmYQuqnwNk
+         BvLdRFHEwenxwGFOLvEQ8NXs5ym52FCcNL6kO9unvOFE1rTSrC4p6K/VHoLJyez5CnDw
+         oBmxUTj/lnH7rXjpTVBgApXtxliXX3Ru731yBvrCmpQSOEncffS35SUnNXqWcyxkkjRC
+         z/ipRSL/l4yfSJ7F9+qM6MSG6KNVAorlQkMGkjWYLZKtzKxLV2p72rSvP/2b5+oAA9p1
+         U9mQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:mime-version:date:content-transfer-encoding:message-id
+         :subject:to:from:dkim-signature:dkim-signature;
+        bh=EHb3C2iK7Tt3Hn1dmqNNeZhub4s2guxCq9Infnul6+A=;
+        fh=vGbfGXtodsA/ZH4J3x9rnnv/yOER3nhhJTHq981zgD8=;
+        b=XJeouKFsjmRaUrME+TOJnULUpoFvzNQYcerMO4v3FtvQLLhtgQHd514Odaoxx4e2xv
+         D2fP3x3R9c5296uuId49m2ulWoFInCjq4Y95MNZPOUKej6Wjr10BjvLPiJfYWDgcCDvc
+         9Jlzg/ugcnB/QRkW3SiY9BkVpDkLTJ94MZ/BUPOwJHAF0pnFvQ3M4DBF/nRClnGPL1ez
+         dskD5QbavcRK55TszEJObcwSQKqcdul/cKUtlXyEqtCGBSVhP0eONM8rv7muDGs6b90o
+         vPA7bhrKO2pEo3T+f2TNWNdJmZoBq8XtlSKhpHStYy1BFIpiGE5i9iFap0clEnA/stPM
+         maXQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@p2eppl.com header.s=lhv2c2whadehpmyb24gk7xkkuo3eucna header.b=OJP10z30;
+       dkim=pass header.i=@amazonses.com header.s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h header.b="aHa+R80/";
+       spf=pass (google.com: domain of 0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com designates 76.223.180.11 as permitted sender) smtp.mailfrom=0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=p2eppl.com
+Return-Path: <0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com>
+Received: from c180-11.smtp-out.ap-south-1.amazonses.com (c180-11.smtp-out.ap-south-1.amazonses.com. [76.223.180.11])
+        by mx.google.com with ESMTPS id d9443c01a7336-29651e851ddsi61445685ad.647.2025.11.09.11.03.46
+        for <swapnil.a.g476@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 09 Nov 2025 11:03:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com designates 76.223.180.11 as permitted sender) client-ip=76.223.180.11;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@p2eppl.com header.s=lhv2c2whadehpmyb24gk7xkkuo3eucna header.b=OJP10z30;
+       dkim=pass header.i=@amazonses.com header.s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h header.b="aHa+R80/";
+       spf=pass (google.com: domain of 0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com designates 76.223.180.11 as permitted sender) smtp.mailfrom=0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=p2eppl.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=lhv2c2whadehpmyb24gk7xkkuo3eucna; d=p2eppl.com; t=1762715026;
+	h=From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
+	bh=4RMEjfxWUPj7PV9pFb45SeKdVRxviPn42ujxvjcBu8U=;
+	b=OJP10z30xBUcTVN6fzaVVeNp1ur8rdZnlrnI5mmjVsTYPfJj2RtrH0b9QwMcjROP
+	HC7P3SvBPogKGBHOJX2wx/czBDYolOvDnyN31qE2hUPDIpzf48bVmy1/uB5V6nEWPG2
+	WqOMrDEiS9YN7s26zvqp4U80vjoG0dPNC2QeRvJ9M8AnuLV1fYwHgJ1go6KNm3Hfe7E
+	xqxF3vvIEC+bVJf+apwAZ5zXEn96U9L3jTc7c71tcjhceQlfHTFCy7RxOxlqo5hVuQr
+	BBjHtuhpHHgfj/dgWLW1HZIlm9Lh4Hnmr02FTPlmOnzpiB3iK7gDFAWT6E6Y47ofszG
+	FlY0TwHEXQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h; d=amazonses.com; t=1762715026;
+	h=From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=4RMEjfxWUPj7PV9pFb45SeKdVRxviPn42ujxvjcBu8U=;
+	b=aHa+R80/0sQKITF6j/3R++qHtHAtsKX4K3B45sHeCSEzhpiAQGclfiuaign9a8cX
+	YDRgZffz1X7xRw2eNPPGYBwx59/mWpBhQeDb3hJ1zKUZC/ujunx7ZcV4b0LIG7JU9Gz
+	VZI321//m9hH1PNakDdK8Gm5N5LdbR4M2ipJjiiA=
+From: no-reply@p2eppl.com
+To: swapnil.a.g476@gmail.com
+Subject: Quotation Approval - Cordelia Cruises
+Message-ID: <0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@ap-south-1.amazonses.com>
+Content-Transfer-Encoding: quoted-printable
+Date: Sun, 9 Nov 2025 19:03:46 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Feedback-ID: ::1.ap-south-1.A7ZO34xEj/oU8Yjdkc5ir6EeUMQOmcImEi0gmSv9gQY=:AmazonSES
+X-SES-Outgoing: 2025.11.09-76.223.180.11
+
+<html dir=3D"ltr" xmlns=3D"http://www.w3.org/1999/xhtml"
+    xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset=3D"UTF-8">
+    <meta content=3D"width=3Ddevice-width, =
+initial-scale=3D1" name=3D"viewport">
+    <meta name=3D"x-apple-disable-mes=
+sage-reformatting">
+    <meta http-equiv=3D"X-UA-Compatible" =
+content=3D"IE=3Dedge">
+    <meta content=3D"telephone=3Dno" =
+name=3D"format-detection">
+    <title>Quotation Email Template</title>
+    <!--[if (mso 16)]>
+        <style type=3D"text/css">
+        a {text-decoration: none;}
+        </style>
+        <![endif]-->
+    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><!=
+[endif]-->
+    <!--[if gte mso 9]>
+    <noscript>
+             <xml>
+               <o:OfficeDocumentSettings>
+               =
+<o:AllowPNG></o:AllowPNG>
+               <o:PixelsPerInch>96</o:PixelsPerIn=
+ch>
+               </o:OfficeDocumentSettings>
+             </xml>
+          </noscript>
+    <![endif]-->
+    <!--[if mso]><xml>
+        <w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word">
+          <w:DontUseAdvancedTypographyReadingMail/>
+        </w:WordDocument>
+        </xml><![endif]-->
+    <style>
+        .rollover:hover .rollover-first {
+            max-height: 0px !=
+important;
+            display: none !important;
+        }
+
+        .rollover:hover .rollover-second {
+            max-height: none !=
+important;
+            display: block !important;
+        }
+
+        .rollover span {
+            font-size: 0px;
+        }
+
+        u+.body img~div div {
+            display: none;
+        }
+
+        #outlook a {
+            padding: 0;
+        }
+
+        span.MsoHyperlink,
+        span.MsoHyperlinkFollowed {
+            color: inherit;
+            mso-style-priority: 99;
+        }
+
+        a.es-button {
+            mso-style-priority: 100 !important;
+            text-decoration: none !important;
+        }
+
+        a[x-apple-data-detectors],
+        #MessageViewBody a {
+            color: inherit !important;
+            text-decoration: none !=
+important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: =
+inherit !important;
+            line-height: inherit !important;
+        }
+
+        .es-desk-hidden {
+            display: none;
+            float: left;
+            overflow: hidden;
+            width: 0;
+            max-height: 0;
+            line-height: =
+0;
+            mso-hide: all;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            =
+-webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+
+        table td,
+        body,
+        .es-wrapper {
+            padding: 0;
+            Margin: 0;
+        }
+
+        .es-content,
+        .es-header,
+        .es-footer {
+            width: 100%;
+            table-layout: fixed !important;
+        }
+
+        img {
+            display: block;
+            font-size: 14px;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+
+        p,
+        hr {
+            Margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            Margin: 0;
+            font-family: arial, 'helvetica neue', =
+helvetica, sans-serif;
+            mso-line-height-rule: exactly;
+            letter-spacing: 0;
+        }
+
+        p,
+        a {
+            mso-line-height-rule: exactly;
+        }
+
+        .es-left {
+            float: left;
+        }
+
+        .es-right {
+            float: right;
+        }
+
+        .es-menu td {
+            border: 0;
+        }
+
+        .es-menu div {
+            vertical-align: middle;
+            display: block;
+        }
+
+        .es-menu td a img {
+            display: inline !important;
+            vertical-align: middle;
+        }
+
+        sub,
+        sup {
+            display: inline-block;
+            font-size: 83% !important;
+            line-height: 1 !important;
+        }
+
+        sub {
+            vertical-align: bottom;
+            mso-text-raise: -30%;
+        }
+
+        sup {
+            mso-text-raise: 30%;
+            vertical-align: top;
+        }
+
+        s {
+            text-decoration: line-through;
+        }
+
+        ul,
+        ol {
+            font-family: arial, 'helvetica neue', helvetica, =
+sans-serif;
+            padding: 0px 0px 0px 30px;
+            margin-top: =
+15px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            color: #333333;
+        }
+
+        ol li {
+            color: #333333;
+        }
+
+        li {
+            margin: 0px 0px 15px;
+            font-size: 14px;
+        }
+
+        li p {
+            mso-margin-bottom-alt: 15px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .es-menu td a {
+            font-family: arial, 'helvetica neue', =
+helvetica, sans-serif;
+            text-decoration: none;
+            display: block;
+        }
+
+        .es-wrapper {
+            width: 100%;
+            height: 100%;
+            =
+background-image: url(https://cordelia-images-prod.s3.ap-south-1.amazonaws.=
+com/group_booking_static/bg-2+1.jpg);
+            background-repeat: =
+no-repeat;
+            background-position: center top;
+            background-size: 100% 100%;
+        }
+
+        .=
+es-wrapper-color,
+        .es-wrapper {
+            background-color: =
+rgb(255, 255, 255);
+        }
+
+        .es-content-body p,
+        .es-footer-body p,
+        .es-header-body p,
+        .es-infoblock p {
+            font-family: arial, 'helvetica neue',=
+ helvetica, sans-serif;
+            line-height: 150%;
+            letter-spacing: 0;
+        }
+
+        .es-header {
+            background-color: transparent;
+            background-repeat: =
+repeat;
+            background-position: center top;
+        }
+
+        .es-header-body {
+            background-color: transparent;
+        }
+
+        .es-header-body p {
+            color: #333333;
+            font-size: 14px;
+        }
+
+        .es-header-body a {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .es-footer {
+            background-color: transparent;
+            background-repeat: repeat;
+            background-position: =
+center top;
+        }
+
+        .es-footer-body {
+            =
+background-color: #ffffff;
+        }
+
+        .es-footer-body p {
+            color: #333333;
+            font-size: 12px;
+        }
+
+        .es-footer-body a {
+            color: #333333;
+            font-size: 12px;
+        }
+
+        .es-content-body {
+            background-color: #ffffff;
+        }
+
+        .es-content-body =
+p {
+            color: #333333;
+            font-size: 14px;
+        }
+
+        .es-content-body a {
+            color: #5c68e2;
+            font-size: 14px;
+        }
+
+        .es-infoblock p {
+            font-size: 12px;
+            color: #cccccc;
+        }
+
+        .es-infoblock a {
+            font-size: 12px;
+            color: #cccccc;
+        }
+
+        h1 {
+            font-size: 46px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 120%;
+            color: #333333;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 120%;
+            color: #333333;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 120%;
+            color: #333333;
+        }
+
+        h4 {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 120%;
+            color: #333333;
+        }
+
+        h5 {
+            font-size: 20px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 120%;
+            color: #333333;
+        }
+
+        h6 {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 120%;
+            color: #333333;
+        }
+
+        .es-header-body h1 a,
+        .es-content-body h1 a,
+        .es-footer-body h1 a {
+            font-size: 46px;
+        }
+
+        .es-header-body h2 a,
+        .es-content-body h2 a,
+        .es-footer-body h2 a {
+            font-size: 26px;
+        }
+
+        .es-header-body h3 a,
+        .es-content-body h3 a,
+        .es-footer-body h3 a {
+            font-size: 20px;
+        }
+
+        .es-header-body h4 a,
+        .es-content-body h4 a,
+        .es-footer-body h4 a {
+            font-size: 24px;
+        }
+
+        .es-header-body h5 a,
+        .es-content-body h5 a,
+        .es-footer-body h5 a {
+            font-size: 20px;
+        }
+
+        .es-header-body h6 a,
+        .es-content-body h6 a,
+        .es-footer-body h6 a {
+            font-size: 16px;
+        }
+
+        a.es-button,
+        button.es-button {
+            padding: 10px 30px 10px 30px;
+            display: inline-block;
+            background: #5c68e2;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 20px;
+            font-family: arial, 'helvetica neue', helvetica, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            line-height: 120%;
+            color: #ffffff;
+            text-decoration: none !important;
+            width: auto;
+            text-align: center;
+            letter-spacing: 0;
+            mso-padding-alt: 0;
+            mso-border-alt: 10px solid =
+#5c68e2;
+        }
+
+        .es-button-border {
+            border-style: =
+solid;
+            border-color: #2cb543 #2cb543 #2cb543 #2cb543;
+            background: #5c68e2;
+            border-width: 0px 0px 0px 0px;
+            display: inline-block;
+            border-radius: 5px 5px 5px =
+5px;
+            width: auto;
+        }
+
+        .es-button img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .es-fw,
+        .es-fw .es-button {
+            display: block;
+        }
+
+        .es-il,
+        .es-il .es-button {
+            display: inline-block;
+        }
+
+        .es-text-rtl h1,
+        .es-text-rtl h2,
+        .es-text-rtl h3,
+        .es-text-rtl h4,
+        .es-text-rtl h5,
+        .es-text-rtl h6,
+        .es-text-rtl input,
+        .es-text-rtl label,
+        .es-text-rtl textarea,
+        .es-text-rtl p,
+        .es-text-rtl ol,
+        .es-text-rtl ul,
+        .es-text-rtl .=
+es-menu a,
+        .es-text-rtl .es-table {
+            direction: rtl;
+        }
+
+        .es-text-ltr h1,
+        .es-text-ltr h2,
+        .es-text-ltr h3,
+        .es-text-ltr h4,
+        .es-text-ltr h5,
+        .es-text-ltr h6,
+        .es-text-ltr input,
+        .es-text-ltr label,
+        .es-text-ltr textarea,
+        .es-text-ltr p,
+        .es-text-ltr ol,
+        .es-text-ltr ul,
+        .es-text-ltr .es-menu a,
+        .es-text-ltr .es-table {
+            direction: ltr;
+        }
+
+        .es-text-rtl ol,
+        .es-text-rtl ul {
+            padding: 0px 40px 0px 0px;
+        }
+
+        .es-text-ltr ul,
+        .es-text-ltr ol {
+            padding: 0px=
+ 0px 0px 40px;
+        }
+
+        .es-p12tb {
+            padding: 12px 0;
+        }
+    </style>
+</head>
+
+<body class=3D"body">
+    <div dir=3D"ltr" class=3D"es-wrapper-color">
+        <!--[if gte mso =
+9]>
+         <v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+fill=3D"t">
+           <v:fill type=3D"tile" src=3D"https://cordelia-images=
+-prod.s3.ap-south-1.amazonaws.com/group_booking_static/bg-2+1.jpg" =
+color=3D"#fafafa" origin=3D"0.5, 0" position=3D"0.5, 0"></v:fill>
+         </v:background>
+        <![endif]-->
+        <table width=3D"100%"=
+ cellspacing=3D"0" cellpadding=3D"0" background=3D"https://cordelia-images-=
+prod.s3.ap-south-1.amazonaws.com/group_booking_static/bg-2+1.jpg"
+            class=3D"es-wrapper">
+            <tbody>
+                <tr>
+                    <td valign=3D"top" class=3D"esd-email-paddings">
+                        <table cellpadding=3D"0" cellspacing=3D"0" =
+align=3D"center" class=3D"es-content">
+                            <tbody>
+                                <tr>
+                                    =
+<td align=3D"center" class=3D"esd-stripe">
+                                =
+        <table bgcolor=3D"transparent" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0"
+                                            width=3D"900"=
+ class=3D"es-content-body" style=3D"background-color:transparent">
+                                            <tbody>
+                                                <tr>
+                                                    <td width=3D"900" =
+align=3D"left" class=3D"esd-container-frame">
+                             =
+                         =20
+    <table cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%"
+    role=3D"presentation"
+    background=3Dhttps://staffpro=
+.cordeliacruises.com/email/quotation/quotation-email-header.png
+    style=3D"background-image: url(https://staffpro.cordeliacruises.=
+com/email/quotation/quotation-email-header.png); background-repeat: =
+no-repeat; background-size: cover; background-position: center;">
+    <tbody>
+        <tr>
+            <td align=3D"left"
+                class=3D"esd-block-text es-text-4580 es-p35t es-p210l"
+                style=3D"padding: 30px 0 0 210px;">
+                <p class=3D"es-text-mobile-size-16"
+                    style=3D"color: #ffffff; margin:0; font-size: 16px; =
+font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;">
+                    <strong>Cordelia=
+ Cruises</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" class=3D"esd-block-text =
+es-p210l"
+                style=3D"padding-left: 210px;">
+                <p
+                    style=3D"margin:0; font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; color: #ffffff; line-height: 200%">
+                    <a href=3D"mailto:travelops@cordeliacruises.com"
+                        style=3D"text-decoration: none; color: =
+#ffffff;">travelops@cordeliacruises.com</a>
+                    <strong
+                        style=3D"padding-left: 230px;">Creation
+                        Date:</strong> 10/11/2025 | 12:33 am
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" class=3D"esd-block-text es-p210l"
+                style=3D"padding-left: 210px;">
+                <p
+                    style=3D"margin:0; color: #ffffff; font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; line-height: 200%">
+                    <a =
+href=3D"tel:+919324519161"
+                        style=3D"text-decoration=
+: none; color: #ffffff;">+919324519161</a>
+                    <strong =
+style=3D"padding-left: 355px;">Valid
+                        Till:</strong>=
+ 12/11/2025 | 11:59 pm
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" class=3D"esd-block-text =
+es-p210l"
+                style=3D"padding-left: 210px;">
+                <p
+                    style=3D"margin:0; font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; color: #ffffff; line-height: 200%">
+                    <a href=3D"https://www.cordeliacruises.com"
+                        target=3D"_blank"
+                        =
+style=3D"text-decoration: none; color: #ffffff;">
+                        =
+<u><strong>www.cordeliacruises.com</strong></u>
+                    </a>
+                    <strong
+                        style=3D"padding-left: =
+302px;">Quotation
+                        No: </strong> Q-2511090959
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" class=3D"esd-block-text es-p70b"
+                style=3D"margin:0; padding-bottom: 65px;">
+                <p></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+                                                    </td>
+                                                </tr>
+                                               =20
+
+                                                <tr>
+                                                    <td align=3D"center" =
+class=3D"esd-block-text es-p25b es-p25t"
+                                  =
+                      style=3D"background-color:transparent;padding: 16px 0=
+ 22px 0;">
+                                                        <h5 =
+style=3D"line-height:170%;text-align: center;">
+                           =
+                                 <strong>Hey There
+                        =
+                                        Quality Test !</strong>
+                                                        </h5>
+                                                        <p =
+style=3D"line-height:170%;color:#5C5C5C">
+                                 =
+                           Remember the awesome cruise
+                                                            aboard the =
+Empress you were
+                                                          =
+  eyeing? <br>We=E2=80=99ve got the
+                                       =
+                     pricing info you requested.
+                          =
+                              </p>
+                                        =
+            </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"center" =
+background=3D"https://cordelia-images-prod.s3.ap-south-1.amazonaws.=
+com/group_booking_static/Union.png"
+                                       =
+                 class=3D"esd-structure esdev-adapt-off"
+                                                        =
+style=3D"background-image:url(https://cordelia-images-prod.s3.ap-south-1.=
+amazonaws.com/group_booking_static/Union.png);background-repeat:no-repeat;b=
+ackground-size:cover;background-position:center;padding:70px 0;">
+                                                        <table =
+width=3D"900" cellpadding=3D"0" cellspacing=3D"0"
+                         =
+                                   class=3D"esdev-mso-table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td =
+valign=3D"top" class=3D"esdev-mso-td">
+                                    =
+                                    <table cellpadding=3D"0" =
+cellspacing=3D"0"
+                                                         =
+                   align=3D"center" class=3D"es-center">
+                                                                           =
+ <tbody>
+                                                                  =
+              <tr>
+                                                        =
+                            <td width=3D"740" align=3D"center"
+                                                                           =
+             class=3D"esd-container-frame es-p80l es-p80r">
+                                                                           =
+             <table cellspacing=3D"0"
+                                     =
+                                                       width=3D"100%"
+                                                                           =
+                 role=3D"presentation"
+                                    =
+                                                        background =
+cellpadding=3D"0">
+                                                        =
+                                    <tbody>
+                               =
+                                                                 <tr>
+                                                                           =
+                         <td align=3D"center"
+                             =
+                                                                           =
+style=3D"padding: 0 0 22px 0;"
+                                            =
+                                                            =
+class=3D"esd-block-text es-p45t es-p45b">
+                                 =
+                                                                       <h2
+                                                                           =
+                                 style=3D"text-align:center;color:#92278F;f=
+ont-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;">
+                                    =
+                                                                        =
+<strong>QUOTATION
+                                                         =
+                                                       DETAILS</strong>
+                                                                           =
+                             </h2>
+                                        =
+                                                            </td>
+                                                                           =
+                     </tr>
+                                                =
+                                                <tr>
+                                                                           =
+                         <td align=3D"center"
+                             =
+                                                                           =
+class=3D"esd-block-text es-text-6445 es-p20l es-p20r">
+                                                                           =
+                             <table
+                                       =
+                                                                     =
+cellpadding=3D"0"
+                                                         =
+                                                   cellspacing=3D"0"
+                                                                           =
+                                 class=3D"es-table"
+                                                                           =
+                                 style=3D"width:100%">
+                                                                           =
+                                 <tbody>
+                                  =
+                                                                           =
+   <tr>
+                                                                   =
+                                                 <td =
+class=3D"es-text-mobile-size-12"
+                                          =
+                                                                           =
+   style=3D"border-width:1px;border-style:dotted;border-color:transparent;w=
+idth:200px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:12px;color:#5c5c5c">
+                                                                           =
+                                             <span
+                        =
+                                                                           =
+                         style=3D"background:transparent;color:#5c5c5c">Dep=
+arture
+                                                                    =
+                                                        Port</span>
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+             <td class=3D"es-text-mobile-size-12"
+                         =
+                                                                           =
+                    style=3D"border-width:1px;border-style:dotted;border-co=
+lor:transparent;width:116px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:12p=
+x;color:#5c5c5c">
+                                                         =
+                                                               =E2=80=8B
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+             <td class=3D"es-text-mobile-size-12"
+                         =
+                                                                           =
+                    style=3D"text-align:right;border-width:1px;border-style=
+:dotted;border-color:transparent;width:200px;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;font-size:12px;color:#5c5c5c">
+                                =
+                                                                           =
+             <span
+                                                        =
+                                                                    =
+style=3D"font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:12px;background:transparent=
+;color:#5c5c5c">Arrival
+                                                   =
+                                                                         =
+Port</span>
+                                                               =
+                                                     </td>
+                                                                           =
+                                     </tr>
+                                =
+                                                                           =
+     <tr>
+                                                                 =
+                                                   <td
+                                                                           =
+                                             style=3D"border-style:dotted;b=
+order-color:transparent;border-width:1px;width:200px;font-family:-apple-sys=
+tem,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif=
+,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;">
+                                                             =
+                                                           =
+<strong>Mumbai</strong>
+                                                   =
+                                                                 </td>
+                                                                           =
+                                         <td align=3D"center"
+                                                                           =
+                                             style=3D"text-align:center;bor=
+der-style:dotted;border-color:transparent;border-width:1px;width:116px">
+                                                                           =
+                                             =C2=B7=C2=B7=C2=B7=C2=B7=
+=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7<img
+                            =
+                                                                           =
+                     style=3D"display: inline-block;"
+                                                                           =
+                                                 src=3D"https://staffpro.=
+cordeliacruises.com/email/ship-icon.png"
+                                  =
+                                                                           =
+               width=3D"22" />=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=
+=C2=B7=C2=B7=C2=B7=C2=B7
+                                                  =
+                                                                  </td>
+                                                                           =
+                                         <td
+                              =
+                                                                           =
+               style=3D"text-align:right;border-width:1px;border-style:dott=
+ed;border-color:transparent;width:200px;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;">
+                                                             =
+                                                           =
+<strong>Mumbai</strong>
+                                                   =
+                                                                 </td>
+                                                                           =
+                                     </tr>
+                                =
+                                                                           =
+     <tr
+                                                                  =
+                                                  class=3D"es-text-mobile-s=
+ize-14">
+                                                                  =
+                                                  <td
+                                                                           =
+                                             style=3D"border-width:1px;bord=
+er-style:dotted;border-color:transparent;width:200px;font-family:-apple-sys=
+tem,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif=
+,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;font-size:14px">
+                                              =
+                                                                          =
+Mon, 2 Feb, 2026
+                                                          =
+                                                          </td>
+                                                                           =
+                                         <td
+                              =
+                                                                           =
+               style=3D"border-width:1px;border-style:dotted;border-color:t=
+ransparent;width:116px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:14p=
+x">
+                                                                       =
+                                                 =E2=80=8B
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+             <td
+                                                          =
+                                                              =
+style=3D"text-align:right;border-width:1px;border-style:dotted;border-color=
+:transparent;width:200px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:14p=
+x">
+                                                                       =
+                                                 Sat, 7 Feb, 2026
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+         </tr>
+                                                            =
+                                                    <tr
+                                                                           =
+                                         class=3D"es-text-mobile-size-14">
+                                                                           =
+                                         <td
+                              =
+                                                                           =
+               style=3D"border-style:dotted;border-color:transparent;border=
+-width:1px;width:200px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:14p=
+x">
+                                                                       =
+                                                 Embarkation:
+                                                                           =
+                                             04:30 pm IST
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+             <td
+                                                          =
+                                                              =
+style=3D"border-width:1px;border-style:dotted;border-color:transparent;widt=
+h:116px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:14px">
+                                                                           =
+                                             =E2=80=8B
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+             <td
+                                                          =
+                                                              =
+style=3D"text-align:right;border-width:1px;border-style:dotted;border-color=
+:transparent;width:200px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:14p=
+x">
+                                                                       =
+                                                 Disembarkation:
+                                                                           =
+                                             08:30 am IST
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+         </tr>
+                                                            =
+                                                </tbody>
+                                                                           =
+                             </table>
+                                     =
+                                                               </td>
+                                                                           =
+                     </tr>
+                                                =
+                                                <tr></tr>
+                                                                           =
+                     <tr>
+                                                 =
+                                                   <td
+                                                                           =
+                             style=3D"background:none;height:0px;width:100%=
+;padding-top:12px;margin:0px 0px 0px 0px;border-bottom:1px solid #cccccc">
+                                                                           =
+                         </td>
+                                            =
+                                                    </tr>
+                                                                           =
+                     <tr>
+                                                 =
+                                                   <td align=3D"center"
+                                                                           =
+                             style=3D"padding: 16px 0;"
+                                                                           =
+                             class=3D"esd-block-text es-text-2352">
+                                                                           =
+                             <p class=3D"es-text-mobile-size-16"
+                                                                           =
+                                 style=3D"font-size:16px;font-family:-apple=
+-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;">
+                                                          =
+                                                  <strong>Mumbai - At Sea -=
+ Kochi - Lakshadweep - At Sea - Mumbai</strong>
+                           =
+                                                                           =
+  </p>
+                                                                    =
+                                    <p class=3D"es-text-mobile-size-16"
+                                                                           =
+                                 style=3D"font-size:16px">
+                                                                           =
+                                 <strong
+                                  =
+                                                                           =
+   class=3D"es-text-mobile-size-13"
+                                       =
+                                                                         =
+style=3D"font-size:13px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;color:#92278F=
+">
+                                                                        =
+                                        Visiting
+                          =
+                                                                           =
+           Ports:&nbsp;
+                                                   =
+                                                             Kochi | =
+Lakshadweep
+
+                                                              =
+                                              </strong>
+                                                                           =
+                             </p>
+                                         =
+                                                           </td>
+                                                                           =
+                     </tr>
+                                                =
+                                                <tr>
+                                                                           =
+                         <td
+                                              =
+                                                          =
+style=3D"margin:0px 0px 0px 0px;border-bottom:1px solid =
+#cccccc;background:none;height:0px;width:100%">
+                           =
+                                                                         =
+</td>
+                                                                     =
+                           </tr>
+                                          =
+                                                      <tr>
+                                                                           =
+                         <td align=3D"left"
+                               =
+                                                                         =
+style=3D"padding-top: 18px;"
+                                              =
+                                                          =
+class=3D"esd-block-text es-text-1002 es-p10t es-p115b">
+                                                                           =
+                             <table
+                                       =
+                                                                     =
+cellpadding=3D"0"
+                                                         =
+                                                   cellspacing=3D"0"
+                                                                           =
+                                 class=3D"es-table es-text-mobile-size-14"
+                                                                           =
+                                 style=3D"width:100%">
+                                                                           =
+                                 <tbody>
+                                  =
+                                                                           =
+   <tr>
+                                                                   =
+                                                 <td
+                                                                           =
+                                             style=3D"padding: 6px 0 0 =
+8px;font-weight:500;border-top-left-radius: 4px;border-right: 1px solid =
+#ddd;font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;; font-size: 13px; color: #5c5c5c; =
+background-color: #ffffffbf">
+                                             =
+                                                                           =
+<span
+                                                                     =
+                                                       =
+style=3D"color:#5c5c5c">Total
+                                             =
+                                                                           =
+    Guests</span>
+                                                         =
+                                                           </td>
+                                                                           =
+                                         <td
+                              =
+                                                                           =
+               style=3D"padding: 6px 0 0 8px;font-weight:500;border-right: =
+1px solid #ddd;font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe =
+UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,=
+&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;; font-size: 13px; color:=
+ #5c5c5c; background-color: #ffffffbf">
+                                   =
+                                                                           =
+          <span
+                                                           =
+                                                                 =
+style=3D"color:#5c5c5c">Total
+                                             =
+                                                                           =
+    Cabins</span>
+                                                         =
+                                                           </td>
+                                                                           =
+                                         <td
+                              =
+                                                                           =
+               style=3D"padding: 6px 0 0 8px;font-weight:500;border-top-rig=
+ht-radius: 4px;font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe =
+UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,=
+&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;; font-size: 13px; color:=
+ #5c5c5c; background-color: #ffffffbf">
+                                   =
+                                                                           =
+          <span
+                                                           =
+                                                                 =
+style=3D"color:#5c5c5c">Total
+                                             =
+                                                                           =
+    Nights</span>
+                                                         =
+                                                           </td>
+                                                                           =
+                                     </tr>
+                                =
+                                                                           =
+     <tr>
+                                                                 =
+                                                   <td
+                                                                           =
+                                             style=3D"padding: 6px 0 6px =
+8px;border-bottom-left-radius: 4px;border-right: 1px solid =
+#ddd;font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;; font-size: 13px; background-color: =
+#ffffffbf">
+                                                               =
+                                                         <span
+                                                                           =
+                                                 style=3D"background:transp=
+arent">
+                                                                   =
+                                                         2 AD, 0 CH, 0 IN
+                                                                           =
+                                             </span>
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+             <td
+                                                          =
+                                                              =
+style=3D"padding: 6px 0 6px 8px;border-right: 1px solid #ddd;font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; font-size: 13px; background-color: #ffffffbf">
+                                                                           =
+                                             <span
+                        =
+                                                                           =
+                         style=3D"background:transparent">
+                                                                           =
+                                                 1
+                        =
+                                                                           =
+                         Cabins
+                                           =
+                                                                           =
+  </span>
+                                                                 =
+                                                   </td>
+                                                                           =
+                                         <td
+                              =
+                                                                           =
+               style=3D"padding: 6px 0 6px 8px;border-bottom-right-radius: =
+4px;font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto=
+,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;; font-size: 13px; background-color: =
+#ffffffbf">
+                                                               =
+                                                         <span
+                                                                           =
+                                                 style=3D"background:transp=
+arent">
+                                                                   =
+                                                         5N /6D
+                                                                           =
+                                             </span>
+                                                                           =
+                                         </td>
+                            =
+                                                                           =
+         </tr>
+                                                            =
+                                                </tbody>
+                                                                           =
+                             </table>
+                                     =
+                                                               </td>
+                                                                           =
+                     </tr>
+                                                =
+                                            </tbody>
+                                                                           =
+             </table>
+                                                     =
+                               </td>
+                                      =
+                                          </tr>
+                           =
+                                                 </tbody>
+                                                                        =
+</table>
+                                                                  =
+  </td>
+                                                                =
+</tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"center" =
+style=3D"padding: 26px 0;"
+                                                =
+        class=3D"esd-block-text es-p45">
+                                  =
+                      <h2
+                                                 =
+           style=3D"text-align:center;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;color:#92278F">
+                                               =
+             PRICING DETAILS
+                                              =
+          </h2>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left" =
+class=3D"esd-structure">
+                                                  =
+      <table cellpadding=3D"0" cellspacing=3D"0" align=3D"left"
+                                                            =
+class=3D"es-left">
+                                                        =
+    <tbody>
+                                                               =
+ <tr>
+                                                                    =
+<td width=3D"900" align=3D"center" valign=3D"top"
+                         =
+                                               class=3D"esd-container-frame=
+">
+                                                                        =
+<table cellpadding=3D"0" cellspacing=3D"0"
+                                =
+                                            width=3D"100%">
+                                                                           =
+ <tbody>
+                                                                  =
+              <tr>
+                                                        =
+                            <td align=3D"left"
+                            =
+                                                            =
+class=3D"esd-block-text es-text-4809">
+                                    =
+                                                    <table =
+cellpadding=3D"0"
+                                                         =
+                                   cellspacing=3D"0"
+                                                                           =
+                 class=3D"es-table es-text-mobile-size-16"
+                                                                           =
+                 style=3D"width:100%; box-shadow: 0px 0px 10px 1px =
+#00000022;">
+                                                              =
+                              <tbody>
+                                     =
+                                                           <tr>
+                                                                           =
+                         <td class=3D"es-text-mobile-size-14"
+                                                                           =
+                             style=3D"text-align: center; border-style: =
+solid; border-color: #cccccc; border-width: 1px; font-size: 14px; =
+font-family: -apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;; background-color: #FDF0ED; color: =
+#ffffff; width: 234px; line-height: 160%">
+                                =
+                                                                        =
+<strong
+                                                                   =
+                                         style=3D"line-height:160%;font-siz=
+e:14px;color:#92278F"><span
+                                               =
+                                                                 =
+style=3D"background: transparent">Cabin
+                                   =
+                                                                           =
+  Type</span></strong>
+                                                    =
+                                                </td>
+                                                                           =
+                         <td class=3D"es-text-mobile-size-14"
+                                                                           =
+                             style=3D"text-align: center;border-color:#cccc=
+cc;border-width:1px;border-style:solid;font-size:14px;font-family:-apple-sy=
+stem,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;;background-color:#FDF0ED;color:#ffffff;line-height:160%;widt=
+h:80px">
+                                                                  =
+                                      <strong
+                             =
+                                                                           =
+    style=3D"line-height:160%;color:#92278F"><span
+                        =
+                                                                           =
+             style=3D"background: transparent">
+                           =
+                                                                           =
+          Cabin
+                                                           =
+                                                     Count</span></strong>
+                                                                           =
+                         </td>
+                                            =
+                                                        <td =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                                              =
+style=3D"text-align: center;border-color:#cccccc;border-width:1px;border-st=
+yle:solid;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;background-co=
+lor:#FDF0ED;color:#ffffff;line-height:160%;width:138px">
+                                                                           =
+                             <strong
+                                      =
+                                                                      =
+style=3D"line-height:160%;color:#92278F"><span
+                            =
+                                                                           =
+         style=3D"background: transparent">
+                               =
+                                                                           =
+      Guest
+                                                               =
+                                                 Count</span></strong>
+                                                                           =
+                         </td>
+                                            =
+                                                        <td =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                                              =
+style=3D"text-align: center;border-width:1px;border-style:solid;border-colo=
+r:#cccccc;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;background-co=
+lor:#FDF0ED;color:#ffffff;line-height:160%;width:129px">
+                                                                           =
+                             <strong
+                                      =
+                                                                      =
+style=3D"line-height:160%;color:#92278F"><span
+                            =
+                                                                           =
+         style=3D"background: transparent">
+                               =
+                                                                           =
+      Cabin
+                                                               =
+                                                 Price</span></strong>
+                                                                           =
+                         </td>
+                                            =
+                                                        <td =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                                              =
+style=3D"text-align: center;border-width:1px;border-style:solid;border-colo=
+r:#cccccc;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;background-co=
+lor:#FDF0ED;color:#ffffff;line-height:160%;width:133px">
+                                                                           =
+                             <strong
+                                      =
+                                                                      =
+style=3D"line-height:160%;color:#92278F"><span
+                            =
+                                                                           =
+         style=3D"background: transparent">
+                               =
+                                                                           =
+      SC&L
+                                                                =
+                                                and
+                                                                           =
+                                     Fuel</span><br><span
+                                                                           =
+                                     style=3D"background: =
+transparent">Charges
+                                                      =
+                                                      </span></strong>
+                                                                           =
+                         </td>
+                                            =
+                                                        <td =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                                              =
+style=3D"text-align: center;border-width:1px;border-style:solid;border-colo=
+r:#cccccc;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;background-co=
+lor:#FDF0ED;color:#ffffff;line-height:160%;width:85px">
+                                                                           =
+                             <strong
+                                      =
+                                                                      =
+style=3D"line-height:160%;color:#92278F"><span
+                            =
+                                                                           =
+         style=3D"background: transparent">
+                               =
+                                                                           =
+      GST</span></strong>
+                                                 =
+                                                   </td>
+                                                                           =
+                        =20
+      =20
+                                     =
+                                                               <td =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                                              =
+style=3D"text-align: center;border-width: 1px; border-style: solid; =
+border-color: #cccccc; font-size: 14px; font-family: -apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;; background-color: #FDF0ED; color: #ffffff; line-height: 160%; =
+width:150px">
+                                                             =
+                                           <strong
+                        =
+                                                                           =
+         style=3D"line-height:160%;color:#92278F"><span
+                                                                           =
+                                     style=3D"background: =
+transparent">Total</span></strong>
+                                        =
+                                                            </td>
+                                                                           =
+                     </tr>
+                                                =
+                                               =20
+         <tr =
+class=3D"es-text-mobile-size-13">
+           <td style=3D"text-align: =
+center;border-width:1px;border-style:solid;border-color:#cccccc;font-size:1=
+3px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,=
+Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';background-color:#ffffff;width:234px;line-height:160%">
+               Interior Standard
+           </td>
+           <td =
+style=3D"text-align: center;border-width:1px;border-style:solid;border-colo=
+r:#cccccc;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,=
+'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI =
+Emoji','Segoe UI Symbol';background-color:#ffffff;width:85px;line-height:16=
+0%">
+               1
+           </td>
+           <td style=3D"text-align: =
+center;border-width:1px;border-style:solid;border-color:#cccccc;font-size:1=
+3px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,=
+Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';background-color:#ffffff;line-height:300%;width:138px">
+             2 AD, 0 CH, 0 IN
+           </td>
+           <td =
+style=3D"text-align: center;border-width:1px;border-style:solid;border-colo=
+r:#cccccc;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,=
+'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI =
+Emoji','Segoe UI Symbol';background-color:#ffffff;line-height:300%;width:12=
+9px">
+               =E2=82=B990,780
+           </td>
+           <td style=3D"text-align: center;border-width:1px;border-style:so=
+lid;border-color:#cccccc;font-size:13px;font-family:-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple =
+Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color:#ffffff;li=
+ne-height:300%;width:133px">
+               =E2=82=B969,420
+           </td>
+           <td style=3D"text-align: =
+center;border-width:1px;border-style:solid;border-color:#cccccc;font-size:1=
+3px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,=
+Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';background-color:#ffffff;line-height:300%;width:85px">
+              =E2=82=B928,836
+           </td>
+          =20
+          =20
+           <td style=3D"border-style:solid;border-color:#cccccc;text-align:=
+ center;border-width:1px;font-size:13px;font-family:-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple =
+Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color:#ffffff;li=
+ne-height:300%">
+              <strong>=E2=82=B91,89,036</strong>
+           </td>
+         </tr>
+      =20
+       <tr =
+class=3D"es-text-mobile-size-13">
+         <td style=3D"text-align:center;b=
+order-width:1px;border-style:solid;border-color:#cccccc;font-size:13px;font=
+-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,=
+sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';background-color: #FDF0ED;width:234px;line-height:300%">
+           <strong>Grand Total</strong>
+         </td>
+         <td style=3D"text-align:center;border-width:1px;border-style:solid=
+;border-color:#cccccc;font-size:13px;font-family:-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple =
+Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color: =
+#FDF0ED;line-height:300%;width:138px">
+           <strong> 1 </strong>
+         </td>
+         <td style=3D"text-align:center;border-width:1px;bor=
+der-style:solid;border-color:#cccccc;font-size:13px;font-family:-apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple =
+Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color: =
+#FDF0ED;line-height:300%;width:138px">
+           <strong> 2 AD, 0 CH, 0 =
+IN</strong>
+         </td>
+         <td style=3D"border-color:#cccccc;text-=
+align:center;border-width:1px;border-style:solid;font-size:13px;font-family=
+:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,=
+sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';background-color: #FDF0ED;line-height:300%;width:129px">
+           <strong>=E2=82=B990,780</strong>
+         </td>
+         <td style=3D"text-align:center;border-width:1px;border-style:solid=
+;border-color:#cccccc;font-size:13px;font-family:-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple =
+Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color: =
+#FDF0ED;line-height:300%;width:133px">
+           <strong>=E2=82=B969,=
+420</strong>
+         </td>
+         <td style=3D"text-align:center;border-=
+width:1px;border-style:solid;border-color:#cccccc;font-size:13px;font-famil=
+y:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,=
+sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';background-color: #FDF0ED;line-height:300%;width:85px">
+           <strong> =E2=82=B928,836</strong>
+         </td>
+       =20
+      =20
+         <td style=3D"border-color:#cccccc;text-align:center;bord=
+er-width:1px;border-style:solid;font-size:13px;font-family:-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple =
+Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color: =
+#FDF0ED;line-height:300%">
+           <strong><span style=3D"color: =
+#92278F">=E2=82=B91,89,036</span></strong>
+         </td>
+       </tr>
+    =20
+                                                                   =
+                         </tbody>
+                                         =
+                                               </table>
+                                                                           =
+         </td>
+                                                            =
+                        </ </tbody>
+                                       =
+                                 </table>
+                                 =
+                                   </td>
+                                  =
+                              </tr>
+                                       =
+                     </tbody>
+                                             =
+           </table>
+                                                    =
+</td>
+                                                </tr>
+
+                                               =20
+
+                                                <tr>
+                                                    <td align=3D"center" =
+style=3D"padding-top: 16px;"
+                                              =
+          class=3D"esd-block-text es-text-9591 es-p25t">
+                                                        <p =
+class=3D"es-text-mobile-size-16" style=3D"font-size: 16px">
+                                                            Final Amount
+                                                        </p>
+                                                        <p =
+class=3D"es-text-mobile-size-24"
+                                          =
+                  style=3D"font-size: 24px; color: #92278F">
+                                                            =
+<strong>=E2=82=B91,89,036</strong>
+                                        =
+                </p>
+                                                    =
+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left"
+                                                        =
+class=3D"esd-block-text es-text-1002 es-p10t es-p115b"
+                                                        style=3D"padding: =
+16px;">
+                                                        <table =
+cellpadding=3D"0" cellspacing=3D"0"
+                                       =
+                     class=3D"es-table es-text-mobile-size-14" =
+style=3D"width:100%">
+                                                     =
+       <tbody>
+                                                            =
+    <tr>
+                                                                  =
+  <td align=3D"right"
+                                                     =
+                   style=3D"padding-right:8px;font-weight:500;font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; font-size: 13px; color: #5c5c5c; background: transparent">
+                                                                        =
+<span class=3D"es-button-border"
+                                          =
+                                  style=3D"text-align:center;border-radius:=
+5px;background:#01A71C;min-width: 110px;">
+                                =
+                                            <a target=3D"_blank"
+                                                                           =
+     href=3D"https://adminpro.stage.cordeliacruises.=
+com/quotation-status/9d5a8a2e-ceaf-46a4-9669-c3749a927c42/approved/swapnil.=
+a.g476@gmail.com"
+                                                         =
+                       class=3D"es-button"
+                                =
+                                                style=3D"color: #ffffff; =
+width:100%;border-radius:5px;padding:12px 0;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;font-size:16px;font-weight:normal;background:#01A71C;mso-border=
+-alt:108 solid #01A71C">
+                                                  =
+                              Approve =E2=9C=93
+                           =
+                                                 </a>
+                                                                        =
+</span>
+                                                                   =
+ </td>
+                                                                    =
+<td
+                                                                       =
+ style=3D"padding-left:8px;font-weight:500;font-family: -apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;; font-size: 13px; color: #5c5c5c; background: transparent">
+                                                                        =
+<span class=3D"es-button-border"
+                                          =
+                                  style=3D"text-align:center;border-radius:=
+5px;background:#EB0004;min-width: 110px;">
+                                =
+                                            <a href=3D"https://adminpro.=
+stage.cordeliacruises.com/quotation-status/9d5a8a2e-ceaf-46a4-9669-c3749a92=
+7c42/rejected/swapnil.a.g476@gmail.com"
+                                   =
+                                             target=3D"_blank" =
+class=3D"es-button"
+                                                       =
+                         style=3D"color: #ffffff; width:100%;border-radius:=
+5px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-size:16px;padding:12px =
+0;font-weight:normal;background:#EB0004;mso-border-alt:10px solid #EB0004">
+                                                                           =
+     Reject =E2=9C=95
+                                                     =
+                       </a>
+                                               =
+                         </span>
+                                          =
+                          </td>
+                                           =
+                     </tr>
+                                                =
+            </tbody>
+                                                      =
+  </table>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align=3D"center">
+                                                        <p>Prices are =
+dynamic and subject to availability.</p>
+                                  =
+                  </td>
+                                                =
+</tr>
+
+                                                <tr>
+                                                    <td
+                                                        =
+style=3D"background:none;height:0px;width:100%;margin:0px 0px 0px =
+0px;padding-top:12px;border-bottom:1px solid #cccccc">
+                                                    </td>
+                                                </tr>
+
+                                               =20
+            <tr>
+              <td align=3D"left" style=3D"padding: 36px 0 12px 12px;"
+                  class=3D"esd-block-text es-p120l es-p120r es-text-9234 =
+es-p10t">
+                  <p class=3D"es-text-mobile-size-16"
+                      style=3D"font-size:16px;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;">
+                      <u><strong>Payment Terms</strong></u>
+                  </p>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <img =
+style=3D"width:95%" src=3D"https://cordelia-cms.s3.ap-south-1.amazonaws.=
+com/B2_C_Fit_pricing_table_4757981494.png" alt=3D"payment terms">
+                </td>
+            </tr>
+         =20
+
+                                                <tr>
+                                                    <td align=3D"left" =
+style=3D"padding: 24px 0 12px 12px;"
+                                      =
+                  class=3D"esd-block-text es-p120l es-p120r es-text-9234 =
+es-p10t">
+                                                        <p =
+class=3D"es-text-mobile-size-16"
+                                          =
+                  style=3D"font-size:16px;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;">
+                                                            =
+<u><strong>Cancellation
+                                                   =
+                 Policy</strong></u>
+                                      =
+                  </p>
+                                                    =
+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left" =
+style=3D"padding: 0 12px;"
+                                                =
+        class=3D"esd-block-text es-text-8544">
+                            =
+                            <table cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"es-table"
+                                                        =
+    style=3D"width:100%">
+                                                 =
+           <tbody>
+                                                        =
+        <tr>
+                                                              =
+      <td
+                                                                 =
+       style=3D"border-width:1px;border-style:solid;border-color:#cccccc;fo=
+nt-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;width:317px;backgroun=
+d-color:#ffffff">
+                                                         =
+               <strong class=3D"es-text-mobile-size-14"
+                                                                           =
+ style=3D"font-size:14px">&nbsp;
+                                          =
+                                  &nbsp; Days
+                             =
+                                               To Departure
+                                                                        =
+</strong>
+                                                                 =
+   </td>
+                                                                  =
+  <td class=3D"es-text-mobile-size-14"
+                                    =
+                                    style=3D"border-color:#cccccc;border-wi=
+dth:1px;border-style:solid;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:2=
+40%;font-size:14px;background-color:#ffffff">
+                             =
+                                           <strong style=3D"font-size:14px"=
+>&nbsp;
+                                                                   =
+         &nbsp;
+                                                           =
+                 Cancellation
+                                             =
+                               Fee</strong>
+                               =
+                                     </td>
+                                =
+                                </tr>
+
+                                    =
+                           =20
+            <tr>
+              <td =
+class=3D"es-text-mobile-size-13"
+                  style=3D"border-width:1p=
+x;border-style:solid;border-color:#cccccc;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;line-height:240%;width:317px;color:#5C5C5C;font-size:13px;backg=
+round-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;No-Show
+              </td>
+              <td class=3D"es-text-mobile-size-13"
+                  =
+style=3D"border-width:1px;border-style:solid;border-color:#cccccc;font-fami=
+ly:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,=
+Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,=
+&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-size:13px;bac=
+kground-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;100% of total fare
+              </td>
+            </tr>
+         =20
+            <tr>
+              <td =
+class=3D"es-text-mobile-size-13"
+                  style=3D"border-width:1p=
+x;border-style:solid;border-color:#cccccc;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;line-height:240%;width:317px;color:#5C5C5C;font-size:13px;backg=
+round-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;0 to 15 days to departure
+              </td>
+              <td class=3D"es-text-mobile-size-13"
+                  =
+style=3D"border-width:1px;border-style:solid;border-color:#cccccc;font-fami=
+ly:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,=
+Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,=
+&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-size:13px;bac=
+kground-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;100% of cabin fare
+              </td>
+            </tr>
+         =20
+            <tr>
+              <td =
+class=3D"es-text-mobile-size-13"
+                  style=3D"border-width:1p=
+x;border-style:solid;border-color:#cccccc;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;line-height:240%;width:317px;color:#5C5C5C;font-size:13px;backg=
+round-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;16 to 30 days to departure
+              </td>
+              <td class=3D"es-text-mobile-size-13"
+                  =
+style=3D"border-width:1px;border-style:solid;border-color:#cccccc;font-fami=
+ly:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,=
+Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,=
+&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-size:13px;bac=
+kground-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;50% of cabin fare
+              </td>
+            </tr>
+         =20
+            <tr>
+              <td =
+class=3D"es-text-mobile-size-13"
+                  style=3D"border-width:1p=
+x;border-style:solid;border-color:#cccccc;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;line-height:240%;width:317px;color:#5C5C5C;font-size:13px;backg=
+round-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;31 days and above to departure
+              </td>
+              <td class=3D"es-text-mobile-size-13"
+                  =
+style=3D"border-width:1px;border-style:solid;border-color:#cccccc;font-fami=
+ly:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,=
+Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,=
+&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-size:13px;bac=
+kground-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;25% of cabin fare
+              </td>
+            </tr>
+         =20
+            <tr>
+              <td =
+class=3D"es-text-mobile-size-13"
+                  style=3D"border-width:1p=
+x;border-style:solid;border-color:#cccccc;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;line-height:240%;width:317px;color:#5C5C5C;font-size:13px;backg=
+round-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;45 days and above to departure
+              </td>
+              <td class=3D"es-text-mobile-size-13"
+                  =
+style=3D"border-width:1px;border-style:solid;border-color:#cccccc;font-fami=
+ly:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,=
+Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,=
+&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-size:13px;bac=
+kground-color:#ffffff">
+                  &nbsp; &nbsp;
+                  &nbsp;0% of Cabin fare
+              </td>
+            </tr>
+         =20
+
+                                           =
+                 </tbody>
+                                                 =
+       </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left" =
+class=3D"esd-block-text es-text-4329">
+                                    =
+                    <ul>
+                                                  =
+         =20
+              <li class=3D"es-text-mobile-size-13" =
+style=3D"font-size:13px">
+                <p style=3D"font-size:13px;color:=
+#5C5C5C">
+                   Partial individual cancellation is not allowed=
+.
+                </p>
+              </li>
+           =20
+              <li class=3D"es-text-mobile-size-13" style=3D"font-size:13px"=
+>
+                <p style=3D"font-size:13px;color:#5C5C5C">
+                   For e.g. In case 4 pax are booked in a cabin and 2 pax =
+want to cancel, cancellation will be for entire cabin.
+                </p>
+              </li>
+           =20
+              <li =
+class=3D"es-text-mobile-size-13" style=3D"font-size:13px">
+                <p style=3D"font-size:13px;color:#5C5C5C">
+                   Service charges & Levies will be refunded.
+                </p>
+              </li>
+           =20
+              <li class=3D"es-text-mobile-size-13" style=3D"font-size:13px"=
+>
+                <p style=3D"font-size:13px;color:#5C5C5C">
+                   GST for the refunded amount will also be returned.
+                </p>
+              </li>
+           =20
+              <li class=3D"es-text-mobile-size-13" style=3D"font-size:13px"=
+>
+                <p style=3D"font-size:13px;color:#5C5C5C">
+                   Refund will be processed within 31 working days from the=
+ cancellation date.
+                </p>
+              </li>
+           =20
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left" =
+style=3D"padding: 6px 0 12px 12px;"
+                                       =
+                 class=3D"esd-block-text es-p120l es-p120r es-text-7419 =
+es-p10t">
+                                                        <p =
+class=3D"es-text-mobile-size-16"
+                                          =
+                  style=3D"font-size:16px;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;">
+                                                            =
+<u><strong>Reschedule Policy</strong></u>
+                                 =
+                       </p>
+                                               =
+     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left" =
+style=3D"padding: 0 12px;"
+                                                =
+        class=3D"esd-block-text es-text-8544">
+                            =
+                            <table cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"es-table"
+                                                        =
+    style=3D"width:100%">
+                                                 =
+           <tbody>
+                                                        =
+        <tr>
+                                                              =
+      <td
+                                                                 =
+       style=3D"border-width:1px;border-style:solid;border-color:#cccccc;fo=
+nt-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI =
+Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;width:317px;backgroun=
+d-color:#ffffff">
+                                                         =
+               <strong class=3D"es-text-mobile-size-14"
+                                                                           =
+ style=3D"font-size:14px">&nbsp;
+                                          =
+                                  &nbsp; Days
+                             =
+                                               To Departure
+                                                                        =
+</strong>
+                                                                 =
+   </td>
+                                                                  =
+  <td class=3D"es-text-mobile-size-14"
+                                    =
+                                    style=3D"border-color:#cccccc;border-wi=
+dth:1px;border-style:solid;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:2=
+40%;font-size:14px;background-color:#ffffff">
+                             =
+                                           <strong style=3D"font-size:14px"=
+>&nbsp;
+                                                                   =
+         &nbsp;
+                                                           =
+                 Reschedule
+                                               =
+                             Fee</strong>
+                                 =
+                                   </td>
+                                  =
+                              </tr>
+                                       =
+                        =20
+            <tr>
+                <td =
+class=3D"es-text-mobile-size-13"
+                    =
+style=3D"border-width:1px;border-style:solid;border-color:#cccccc;font-fami=
+ly:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,=
+Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,=
+&#39;Segoe UI Symbol&#39;;line-height:240%;width:317px;color:#5C5C5C;font-s=
+ize:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;Before 48 Hours prior to departure
+                </td>
+                <td class=3D"es-text-mobile-size-13"
+                    style=3D"border-width:1px;border-style:solid;border-col=
+or:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-s=
+ize:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;NIL Fee
+                </td>
+            </tr>
+         =20
+            <tr>
+                <td class=3D"es-text-mobile-s=
+ize-13"
+                    style=3D"border-width:1px;border-style:solid;bo=
+rder-color:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe =
+UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,=
+&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;width:3=
+17px;color:#5C5C5C;font-size:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;4 to 10
+                </td>
+                <td class=3D"es-text-mobile-size-13"
+                    style=3D"border-width:1px;border-style:solid;border-col=
+or:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-s=
+ize:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;10K
+                </td>
+            </tr>
+         =20
+            <tr>
+                <td class=3D"es-text-mobile-s=
+ize-13"
+                    style=3D"border-width:1px;border-style:solid;bo=
+rder-color:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe =
+UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,=
+&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;width:3=
+17px;color:#5C5C5C;font-size:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;10 to 30
+                </td>
+                <td class=3D"es-text-mobile-size-13"
+                    style=3D"border-width:1px;border-style:solid;border-col=
+or:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-s=
+ize:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;7K
+                </td>
+            </tr>
+         =20
+            <tr>
+                <td class=3D"es-text-mobile-s=
+ize-13"
+                    style=3D"border-width:1px;border-style:solid;bo=
+rder-color:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe =
+UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,=
+&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;width:3=
+17px;color:#5C5C5C;font-size:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;45 +
+                </td>
+                <td class=3D"es-text-mobile-size-13"
+                    style=3D"border-width:1px;border-style:solid;border-col=
+or:#cccccc;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,=
+Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI=
+ Emoji&#39;,&#39;Segoe UI Symbol&#39;;line-height:240%;color:#5C5C5C;font-s=
+ize:13px;background-color:#ffffff">
+                    &nbsp; &nbsp;
+                    &nbsp;2K
+                </td>
+            </tr>
+         =20
+                                                            =
+</tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=3D"left" =
+class=3D"esd-block-text es-text-4329">
+                                    =
+                    <ul>
+                                                  =
+         =20
+              <li class=3D"es-text-mobile-size-13" =
+style=3D"font-size:13px">
+                  <p style=3D"font-size:13px;colo=
+r:#5C5C5C">
+                     The rescheduled itinerary must commence =
+within 6 months from the original departure date and any loyalty points or =
+rewards redeemed for the original booking may not be reinstated.
+                  </p>
+              </li>
+           =20
+              <li class=3D"es-text-mobile-size-13" style=3D"font-size:13px"=
+>
+                  <p style=3D"font-size:13px;color:#5C5C5C">
+                     The rescheduled itinerary must commence within 6 =
+months from the original departure date and any changes requested within 7 =
+days of departure may incur additional penalties.
+                  </p>
+              </li>
+           =20
+              <li =
+class=3D"es-text-mobile-size-13" style=3D"font-size:13px">
+                  <p style=3D"font-size:13px;color:#5C5C5C">
+                     The rescheduled itinerary must commence within 6 =
+months from the original departure date and all rebooking requests are =
+subject to approval by the service provider.
+                  </p>
+              </li>
+           =20
+              <li =
+class=3D"es-text-mobile-size-13" style=3D"font-size:13px">
+                  <p style=3D"font-size:13px;color:#5C5C5C">
+                     The rescheduled itinerary must commence within 6 =
+months from the original departure date and passengers are responsible for =
+any re-issuance of tickets or documents.
+                  </p>
+              </li>
+           =20
+              <li =
+class=3D"es-text-mobile-size-13" style=3D"font-size:13px">
+                  <p style=3D"font-size:13px;color:#5C5C5C">
+                     The rescheduled itinerary must commence within 6 =
+months from the original departure date and additional rebooking fees may =
+apply based on the revised travel date.
+                  </p>
+              </li>
+           =20
+                                        =
+                </ul>
+                                                    =
+</td>
+                                                </tr>
+
+                                               =20
+                <tr>
+                      <td align=3D"left" style=3D"padding: 6px 0 0 12px;"
+                          class=3D"esd-block-text es-p120l es-p120r =
+es-text-7419 es-p10t">
+                          <p =
+class=3D"es-text-mobile-size-16"
+                              =
+style=3D"font-size:16px;font-family:-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color =
+Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;">
+                              <u><strong>Split Payment Policy</strong></u>
+                          </p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td =
+align=3D"left"
+                          class=3D"esd-block-text =
+es-text-4329">
+                          <ul>
+                             =
+=20
+                  <li class=3D"es-text-mobile-size-13" =
+style=3D"font-size:13px">
+                      <p style=3D"font-size:13px;=
+color:#5C5C5C">
+                          There will be no refunds if, =
+booking is cancelled by user
+                      </p>
+                  </li>
+             =20
+                  <li =
+class=3D"es-text-mobile-size-13" style=3D"font-size:13px">
+                      <p style=3D"font-size:13px;color:#5C5C5C">
+                          If the booking is cancelled due to non-payment, =
+the guest is allowed to reinstate the booking as per the reinstatement =
+policy.
+                      </p>
+                  </li>
+             =20
+                  <li class=3D"es-text-mobile-size-13" =
+style=3D"font-size:13px">
+                      <p style=3D"font-size:13px;=
+color:#5C5C5C">
+                          If the booking is made 60 days or=
+ more prior to the sailing date, the balance payment must be completed no =
+later than 60 days before the sailing date.
+                      </p>
+                  </li>
+             =20
+                  <li =
+class=3D"es-text-mobile-size-13" style=3D"font-size:13px">
+                      <p style=3D"font-size:13px;color:#5C5C5C">
+                          If the booking is made within 60 days of the =
+sailing date, the balance payment must be completed within 48 hours of the =
+booking date.
+                      </p>
+                  </li>
+             =20
+                  <li class=3D"es-text-mobile-size-13" =
+style=3D"font-size:13px">
+                      <p style=3D"font-size:13px;=
+color:#5C5C5C">
+                          For Charter bookings, if the =
+booking is made 90 days or more prior to the sailing date, the balance =
+payment must be completed no later than 90 days before the sailing date.
+                      </p>
+                  </li>
+             =20
+                          </ul>
+                      </td>
+                  </tr>
+         =20
+
+                                     =
+           <tr>
+                                                    <td =
+align=3D"center" class=3D"esd-block-spacer es-p12tb"
+                                                        =
+style=3D"font-size:0">
+                                                    =
+    <table cellspacing=3D"0" height=3D"100%" width=3D"100%" border=3D"0"
+                                                            =
+cellpadding=3D"0" class=3D"es-spacer">
+                                    =
+                        <tbody>
+                                           =
+                     <tr>
+                                                 =
+                   <td
+                                                    =
+                    style=3D"background:none;height:0px;width:100%;margin:0=
+px 0px 0px 0px;border-bottom:1px solid #cccccc">
+                          =
+                                          </td>
+                           =
+                                     </tr>
+                                =
+                            </tbody>
+                                      =
+                  </table>
+                                                =
+    </td>
+                                                </tr>
+
+                                               =20
+    <tr>
+        <td align=3D"left" class=3D"esd-structure es-p20r">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tbody>
+                    <tr>
+                        =
+<td width=3D"880" align=3D"left" style=3D"padding-bottom: 8px;"
+                            class=3D"esd-container-frame">
+                            <table cellpadding=3D"0" cellspacing=3D"0"
+                                width=3D"100%" role=3D"presentation">
+                                <tbody>
+                                   =
+ <tr>
+                                        <td align=3D"center"
+                                            class=3D"esd-block-text">
+                                            <h5
+                           =
+                     style=3D"text-align:center;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;line-height:170%">
+                                            =
+    <strong>Got questions?</strong>
+                                       =
+     </h5>
+                                        </td>
+                                    </tr>
+                                =
+</tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align=3D"left" =
+class=3D"esd-structure es-p20r">
+            <table width=3D"100%" =
+cellpadding=3D"0" cellspacing=3D"0">
+                <tbody>
+                    <tr>
+                        <td width=3D"880" =
+align=3D"left"
+                            class=3D"esd-container-frame">
+                            <table cellspacing=3D"0" width=3D"100%"
+                                role=3D"presentation" cellpadding=3D"0">
+                                <tbody>
+                                   =
+ <tr>
+                                        <td align=3D"center"
+                                            class=3D"esd-block-text">
+                                            <p
+                            =
+                    style=3D"line-height:170%;font-family:-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;color:#5C5C5C">
+                                               =
+ If you=E2=80=99ve already completed
+                                      =
+          the payment, please ignore
+                                      =
+          this email.<br>Just call us
+                                     =
+           at <strong
+                                                    =
+style=3D"color:#92278F">+919324519161</strong>
+                            =
+                    or reply to this email.
+                               =
+                 We're
+                                                =
+<br>always happy to chat.
+                                            </p>
+                                        </td>
+                             =
+       </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+                                                =
+<tr>
+                                                    <td width=3D"900" =
+align=3D"left" class=3D"esd-container-frame">
+                             =
+                           <table cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%"
+                                                            =
+role=3D"presentation"
+                                                     =
+       background=3D"https://cordelia-images-prod.s3.ap-south-1.amazonaws.=
+com/group_booking_static/email-footer.png"
+                                =
+                            style=3D"background-image: =
+url(https://cordelia-images-prod.s3.ap-south-1.amazonaws.=
+com/group_booking_static/email-footer.png); background-repeat: no-repeat; =
+background-position: left top">
+                                           =
+                 <tbody>
+                                                  =
+              <tr>
+                                                        =
+            <td align=3D"left"
+                                            =
+                            class=3D"esd-block-text es-text-6071 es-p150t =
+es-p360l"
+                                                                 =
+       style=3D"padding: 160px 0 0 360px;">
+                               =
+                                         <p class=3D"es-text-mobile-size-14=
+"
+                                                                         =
+   style=3D"line-height: 100%; font-family: -apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,=
+&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;; font-size: 14px; color: #ffffff">
+                            =
+                                                <strong>Connect with =
+Us</strong>
+                                                               =
+         </p>
+                                                             =
+       </td>
+                                                              =
+  </tr>
+                                                                =
+<tr>
+                                                                    =
+<td align=3D"left"
+                                                        =
+                class=3D"esd-block-text es-p10t es-p320l es-p390r"
+                                                                        =
+style=3D"padding: 18px 390px 0 310px;">
+                                   =
+                                     <table cellpadding=3D"0" =
+cellspacing=3D"0"
+                                                         =
+                   class=3D"es-table" style=3D"width: 100%">
+                                                                           =
+ <tbody>
+                                                                  =
+              <tr>
+                                                        =
+                            <td align=3D"center"
+                          =
+                                                              =
+style=3D"border-width: 1px; border-style: dotted; border-color: =
+transparent">
+                                                             =
+                           <a target=3D"_blank"
+                           =
+                                                                 =
+href=3D"https://in.linkedin.com/company/cordeliacruises">
+                                                                           =
+                 <img style=3D"display: inline-block;"
+                                                                           =
+                     src=3D"https://staffpro.cordeliacruises.=
+com/email/quotation/linkedin.png"
+                                         =
+                                                       width=3D"20"
+                                                                           =
+                     height=3D"20" />
+                                     =
+                                                   </a>
+                                                                           =
+         </td>
+                                                            =
+                        <td align=3D"center"
+                              =
+                                                          =
+style=3D"border-width: 1px; border-style: dotted; border-color: =
+transparent">
+                                                             =
+                           <a target=3D"_blank"
+                           =
+                                                                 =
+href=3D"https://www.instagram.com/cordeliacruises/?hl=3Den">
+                                                                           =
+                 <img style=3D"display: inline-block;"
+                                                                           =
+                     src=3D"https://staffpro.cordeliacruises.=
+com/email/quotation/instagram.png"
+                                        =
+                                                        width=3D"20"
+                                                                           =
+                     height=3D"20" />
+                                     =
+                                                   </a>
+                                                                           =
+         </td>
+                                                            =
+                        <td align=3D"center"
+                              =
+                                                          =
+style=3D"border-width: 1px; border-style: dotted; border-color: =
+transparent">
+                                                             =
+                           <a target=3D"_blank"
+                           =
+                                                                 =
+href=3D"https://twitter.com/CordeliaCruises">
+                             =
+                                                               <img =
+style=3D"display: inline-block;"
+                                          =
+                                                      =
+src=3D"https://staffpro.cordeliacruises.com/email/quotation/x.png"
+                                                                           =
+                     width=3D"20"
+                                         =
+                                                       height=3D"20" />
+                                                                           =
+             </a>
+                                                         =
+                           </td>
+                                          =
+                                          <td align=3D"center"
+                                                                           =
+             style=3D"border-width: 1px; border-style: dotted; =
+border-color: transparent">
+                                               =
+                                         <a target=3D"_blank"
+                                                                           =
+                 href=3D"https://www.facebook.com/cordeliacruises">
+                                                                           =
+                 <img style=3D"display: inline-block;"
+                                                                           =
+                     src=3D"https://staffpro.cordeliacruises.=
+com/email/quotation/facebook.png"
+                                         =
+                                                       width=3D"11"
+                                                                           =
+                     height=3D"20" />
+                                     =
+                                                   </a>
+                                                                           =
+         </td>
+                                                            =
+                        <td align=3D"center"
+                              =
+                                                          =
+style=3D"border-width: 1px; border-style: dotted; border-color: =
+transparent">
+                                                             =
+                           <a target=3D"_blank"
+                           =
+                                                                 =
+href=3D"https://www.youtube.com/channel/UCIGZzyqWsbCH1-VNFsXrY9g">
+                                                                           =
+                 <img style=3D"display: inline-block;"
+                                                                           =
+                     src=3D"https://staffpro.cordeliacruises.=
+com/email/quotation/youtube.png"
+                                          =
+                                                      width=3D"26"
+                                                                           =
+                     height=3D"18" />
+                                     =
+                                                   </a>
+                                                                           =
+         </td>
+                                                            =
+                    </tr>
+                                                 =
+                           </tbody>
+                                       =
+                                 </table>
+                                 =
+                                   </td>
+                                  =
+                              </tr>
+                                       =
+                         <tr>
+                                             =
+                       <td align=3D"center"
+                               =
+                                         class=3D"esd-block-text =
+es-text-6071 es-p150t es-p360l"
+                                           =
+                             style=3D"padding-top: 50px;">
+                                                                        <p =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                  style=3D"line-height: 100%; font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; font-size: 12px; color: #ffffff">
+                         =
+                                                   "Terms and conditions of=
+ the Passenger
+                                                            =
+                Cruise Ticket Contract apply"
+                             =
+                                           </p>
+                           =
+                                         </td>
+                            =
+                                    </tr>
+                                 =
+                               <tr>
+                                       =
+                             <td align=3D"center"
+                         =
+                                               class=3D"esd-block-text =
+es-text-6071 es-p150t es-p360l"
+                                           =
+                             style=3D"padding: 12px 0 26px 0;">
+                                                                        <p =
+class=3D"es-text-mobile-size-14"
+                                          =
+                                  style=3D"line-height: 100%; font-family: =
+-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,=
+sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe =
+UI Symbol&#39;; font-size: 12px; color: #ffffff">
+                         =
+                                                   "Terms & Conditions of =
+other Policies
+                                                            =
+                appearing on www.=E2=80=8Bcordeliacruises=E2=80=8B.com
+                                                                           =
+ apply"
+                                                                   =
+     </p>
+                                                                 =
+   </td>
+                                                                =
+</tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                          =
+          </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
