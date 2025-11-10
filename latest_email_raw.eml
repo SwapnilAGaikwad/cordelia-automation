@@ -1,73 +1,73 @@
 Delivered-To: swapnil.a.g476@gmail.com
-Received: by 2002:a05:651c:3145:b0:378:cf36:6d44 with SMTP id k5csp1863919ljd;
-        Sun, 9 Nov 2025 11:03:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFVfqUC6olH+rDZORyJObMERq6wlratGyvVAb0Iw1PWZeujCIvbsMI/kCW5EnZ6NmN+QSxy
-X-Received: by 2002:a17:902:f601:b0:295:915d:1eed with SMTP id d9443c01a7336-297e56d0e7dmr76899745ad.47.1762715028410;
-        Sun, 09 Nov 2025 11:03:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1762715028; cv=none;
+Received: by 2002:a05:651c:3145:b0:378:cf36:6d44 with SMTP id k5csp2041541ljd;
+        Sun, 9 Nov 2025 22:35:03 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEQ6TmP/l12F7hj/RS/MOUpUL0vOFgv51x3r+eJa0gHMKRlwtXqGVjoohDPhIgTjCZYLr2H
+X-Received: by 2002:a05:6a20:431f:b0:34e:a1b2:a35f with SMTP id adf61e73a8af0-353a42743f4mr9754265637.53.1762756503218;
+        Sun, 09 Nov 2025 22:35:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1762756503; cv=none;
         d=google.com; s=arc-20240605;
-        b=WR1KZfljRnuaX+f/h8AbQJEryZu+b55QIvTmeyDjeCyRLApGwtBrk6wRbQtn3xE+BI
-         6u+Ci+ELC3dswtDv5s7YCEUQKf15c7YEHSS4IRHn4sa33eV5JqWI/+6K72DmYQuqnwNk
-         BvLdRFHEwenxwGFOLvEQ8NXs5ym52FCcNL6kO9unvOFE1rTSrC4p6K/VHoLJyez5CnDw
-         oBmxUTj/lnH7rXjpTVBgApXtxliXX3Ru731yBvrCmpQSOEncffS35SUnNXqWcyxkkjRC
-         z/ipRSL/l4yfSJ7F9+qM6MSG6KNVAorlQkMGkjWYLZKtzKxLV2p72rSvP/2b5+oAA9p1
-         U9mQ==
+        b=Kf5aH+qZmMAPNJYpPy9nr07nTQCkn5XXw1/AhHOpVML2dyfM8ho1hlXRypej8axaNt
+         XYErfFaYqEJPEfN6/FOL+Qa8Fm1Jv074CmKEn13HL6Tg+E9BjdONXOWcTgK/yGQ/97lD
+         69eGT6lkR2uEh6jD6hWTdCORYzz9T8S90AWj2s5WPbfSTQ09An4yFmQHIYndS4NN6aFU
+         Z2w+gxy+mLawjPt7QHuBmDZq4bC0zCXKCEGRtxUs/URyIzLQJxUUSD+RQSkRkhXrT/kb
+         TH75R11ekWFsvLEu+FJSckjIAZozEdKcwftglecpL4rKoC1Ep7XdFtl5gTbJJ9Q3YVVj
+         nb7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=feedback-id:mime-version:date:content-transfer-encoding:message-id
          :subject:to:from:dkim-signature:dkim-signature;
-        bh=EHb3C2iK7Tt3Hn1dmqNNeZhub4s2guxCq9Infnul6+A=;
+        bh=hlGk1LiQ/aFh+Oq7aJLOcxtrS3TDRFk3MJUiDKG31mM=;
         fh=vGbfGXtodsA/ZH4J3x9rnnv/yOER3nhhJTHq981zgD8=;
-        b=XJeouKFsjmRaUrME+TOJnULUpoFvzNQYcerMO4v3FtvQLLhtgQHd514Odaoxx4e2xv
-         D2fP3x3R9c5296uuId49m2ulWoFInCjq4Y95MNZPOUKej6Wjr10BjvLPiJfYWDgcCDvc
-         9Jlzg/ugcnB/QRkW3SiY9BkVpDkLTJ94MZ/BUPOwJHAF0pnFvQ3M4DBF/nRClnGPL1ez
-         dskD5QbavcRK55TszEJObcwSQKqcdul/cKUtlXyEqtCGBSVhP0eONM8rv7muDGs6b90o
-         vPA7bhrKO2pEo3T+f2TNWNdJmZoBq8XtlSKhpHStYy1BFIpiGE5i9iFap0clEnA/stPM
-         maXQ==;
+        b=LHNXUpHVVF1vME/DJ6n/sZoCL2XYqEULP/87uxT+u1Z0VNRUYMiARD+59t73nb3wvE
+         XqZ/Y61L3aQ5r4at72ETtWJ9PcriFMC87LuxYaAMShQ/hiffoPlZIfWDkFyyojRwaEg/
+         KaDwhMTdFkFop0lqi7GsZMCSrPA11mRM9sXP5JE35ZPECjv/vTX9rfX7XbOoQnKpBd/7
+         juSiShtySr++N7g+VnFf6sTosf6WN0cVY7vv5vDNmGxv8VrVqe4e7UaDsHeZdmAm/dwD
+         bawlc+r+FGDtYucPup+RHHUsDI19iB8uxPW4de4N+IYeWnJR/wxmVzUvTXtwo8qyao8h
+         HMdQ==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       dkim=pass header.i=@p2eppl.com header.s=lhv2c2whadehpmyb24gk7xkkuo3eucna header.b=OJP10z30;
-       dkim=pass header.i=@amazonses.com header.s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h header.b="aHa+R80/";
-       spf=pass (google.com: domain of 0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com designates 76.223.180.11 as permitted sender) smtp.mailfrom=0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com;
+       dkim=pass header.i=@p2eppl.com header.s=lhv2c2whadehpmyb24gk7xkkuo3eucna header.b=CsI7ggVc;
+       dkim=pass header.i=@amazonses.com header.s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h header.b=qQgraI82;
+       spf=pass (google.com: domain of 0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@info.p2eppl.com designates 76.223.180.33 as permitted sender) smtp.mailfrom=0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@info.p2eppl.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=p2eppl.com
-Return-Path: <0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com>
-Received: from c180-11.smtp-out.ap-south-1.amazonses.com (c180-11.smtp-out.ap-south-1.amazonses.com. [76.223.180.11])
-        by mx.google.com with ESMTPS id d9443c01a7336-29651e851ddsi61445685ad.647.2025.11.09.11.03.46
+Return-Path: <0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@info.p2eppl.com>
+Received: from c180-33.smtp-out.ap-south-1.amazonses.com (c180-33.smtp-out.ap-south-1.amazonses.com. [76.223.180.33])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-7b0cca580a1si5361446b3a.546.2025.11.09.22.35.01
         for <swapnil.a.g476@gmail.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 Nov 2025 11:03:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of 0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com designates 76.223.180.11 as permitted sender) client-ip=76.223.180.11;
+        Sun, 09 Nov 2025 22:35:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@info.p2eppl.com designates 76.223.180.33 as permitted sender) client-ip=76.223.180.33;
 Authentication-Results: mx.google.com;
-       dkim=pass header.i=@p2eppl.com header.s=lhv2c2whadehpmyb24gk7xkkuo3eucna header.b=OJP10z30;
-       dkim=pass header.i=@amazonses.com header.s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h header.b="aHa+R80/";
-       spf=pass (google.com: domain of 0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com designates 76.223.180.11 as permitted sender) smtp.mailfrom=0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@info.p2eppl.com;
+       dkim=pass header.i=@p2eppl.com header.s=lhv2c2whadehpmyb24gk7xkkuo3eucna header.b=CsI7ggVc;
+       dkim=pass header.i=@amazonses.com header.s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h header.b=qQgraI82;
+       spf=pass (google.com: domain of 0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@info.p2eppl.com designates 76.223.180.33 as permitted sender) smtp.mailfrom=0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@info.p2eppl.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=p2eppl.com
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
-	s=lhv2c2whadehpmyb24gk7xkkuo3eucna; d=p2eppl.com; t=1762715026;
+	s=lhv2c2whadehpmyb24gk7xkkuo3eucna; d=p2eppl.com; t=1762756501;
 	h=From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
-	bh=4RMEjfxWUPj7PV9pFb45SeKdVRxviPn42ujxvjcBu8U=;
-	b=OJP10z30xBUcTVN6fzaVVeNp1ur8rdZnlrnI5mmjVsTYPfJj2RtrH0b9QwMcjROP
-	HC7P3SvBPogKGBHOJX2wx/czBDYolOvDnyN31qE2hUPDIpzf48bVmy1/uB5V6nEWPG2
-	WqOMrDEiS9YN7s26zvqp4U80vjoG0dPNC2QeRvJ9M8AnuLV1fYwHgJ1go6KNm3Hfe7E
-	xqxF3vvIEC+bVJf+apwAZ5zXEn96U9L3jTc7c71tcjhceQlfHTFCy7RxOxlqo5hVuQr
-	BBjHtuhpHHgfj/dgWLW1HZIlm9Lh4Hnmr02FTPlmOnzpiB3iK7gDFAWT6E6Y47ofszG
-	FlY0TwHEXQ==
+	bh=DYzswCVmsXTB3ap8Xvy2Di2MWurgmG4t5SGqFv+/5zA=;
+	b=CsI7ggVcT2RUxoL+8QfbQq0eg2uW25Zn0OkvK8izeCFww2Sal09fjTwIsEfNNAqC
+	zKWFubkGZTgYN7CQapUz2sP0EYwYYysmGNhQh6x0T84g5ZVzLbEU8jqZzQwh3XY9D7z
+	3qLpFC5TzLh/iFU3s9YNKkTiVIyzhcttD/Y6BdEpUXl54TYbKOERECIPputgQ0frGSM
+	tt/dhmsOGRx/64szs53lJTF9MgNcWOQTsVT6VVEVVhcaShwk7jSsVGW2p3wujUV7Y0K
+	j8lDyRxD8dpF4fZH9vUrj/1Swo4CizWXcv0IKYsL4v71V3BCLVi2DwFr43gL0fsAXPQ
+	Lq2jmTqrFQ==
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
-	s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h; d=amazonses.com; t=1762715026;
+	s=dvogjbaa3ou3tduyzvyu4rj5tkuzdi4h; d=amazonses.com; t=1762756501;
 	h=From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
-	bh=4RMEjfxWUPj7PV9pFb45SeKdVRxviPn42ujxvjcBu8U=;
-	b=aHa+R80/0sQKITF6j/3R++qHtHAtsKX4K3B45sHeCSEzhpiAQGclfiuaign9a8cX
-	YDRgZffz1X7xRw2eNPPGYBwx59/mWpBhQeDb3hJ1zKUZC/ujunx7ZcV4b0LIG7JU9Gz
-	VZI321//m9hH1PNakDdK8Gm5N5LdbR4M2ipJjiiA=
+	bh=DYzswCVmsXTB3ap8Xvy2Di2MWurgmG4t5SGqFv+/5zA=;
+	b=qQgraI825Shmt2fDGiH2uod1+urcjDSOxpcddJxzS3t/oysEnwTGELcZvruH42zL
+	F/ccVuLB4oC2oAK4njwxu7yOBe1mHWZLSMmwwIykOjsclCBmmnoQ9FsDyJmL716Z5wb
+	NJp5XInEn7ZnRbpNjXv6dLJPDrHKwr1wgufNgjRE=
 From: no-reply@p2eppl.com
 To: swapnil.a.g476@gmail.com
 Subject: Quotation Approval - Cordelia Cruises
-Message-ID: <0109019a6a00c4d6-a53defec-613d-4af0-b00f-2d510940676c-000000@ap-south-1.amazonses.com>
+Message-ID: <0109019a6c799fe6-3575f5d8-8808-469a-8c71-9dda843e4ae7-000000@ap-south-1.amazonses.com>
 Content-Transfer-Encoding: quoted-printable
-Date: Sun, 9 Nov 2025 19:03:46 +0000
+Date: Mon, 10 Nov 2025 06:35:01 +0000
 MIME-Version: 1.0
 Content-Type: text/html; charset=utf-8
 Feedback-ID: ::1.ap-south-1.A7ZO34xEj/oU8Yjdkc5ir6EeUMQOmcImEi0gmSv9gQY=:AmazonSES
-X-SES-Outgoing: 2025.11.09-76.223.180.11
+X-SES-Outgoing: 2025.11.10-76.223.180.33
 
 <html dir=3D"ltr" xmlns=3D"http://www.w3.org/1999/xhtml"
     xmlns:o=3D"urn:schemas-microsoft-com:office:office">
@@ -660,7 +660,7 @@ UI Symbol&#39;; color: #ffffff; line-height: 200%">
 #ffffff;">travelops@cordeliacruises.com</a>
                     <strong
                         style=3D"padding-left: 230px;">Creation
-                        Date:</strong> 10/11/2025 | 12:33 am
+                        Date:</strong> 10/11/2025 | 12:05 pm
                 </p>
             </td>
         </tr>
@@ -679,7 +679,7 @@ href=3D"tel:+919324519161"
                     <strong =
 style=3D"padding-left: 355px;">Valid
                         Till:</strong>=
- 12/11/2025 | 11:59 pm
+ 13/11/2025 | 11:59 pm
                 </p>
             </td>
         </tr>
@@ -702,7 +702,7 @@ style=3D"text-decoration: none; color: #ffffff;">
                     <strong
                         style=3D"padding-left: =
 302px;">Quotation
-                        No: </strong> Q-2511090959
+                        No: </strong> Q-2511101210
                 </p>
             </td>
         </tr>
@@ -1755,7 +1755,7 @@ UI Symbol&#39;; font-size: 13px; color: #5c5c5c; background: transparent">
                                             <a target=3D"_blank"
                                                                            =
      href=3D"https://adminpro.stage.cordeliacruises.=
-com/quotation-status/9d5a8a2e-ceaf-46a4-9669-c3749a927c42/approved/swapnil.=
+com/quotation-status/dae3bad4-c5f7-48d9-88cb-75f2f5b6e62b/approved/swapnil.=
 a.g476@gmail.com"
                                                          =
                        class=3D"es-button"
@@ -1788,8 +1788,8 @@ Symbol&#39;; font-size: 13px; color: #5c5c5c; background: transparent">
 5px;background:#EB0004;min-width: 110px;">
                                 =
                                             <a href=3D"https://adminpro.=
-stage.cordeliacruises.com/quotation-status/9d5a8a2e-ceaf-46a4-9669-c3749a92=
-7c42/rejected/swapnil.a.g476@gmail.com"
+stage.cordeliacruises.com/quotation-status/dae3bad4-c5f7-48d9-88cb-75f2f5b6=
+e62b/rejected/swapnil.a.g476@gmail.com"
                                    =
                                              target=3D"_blank" =
 class=3D"es-button"
