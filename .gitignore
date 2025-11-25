@@ -54,6 +54,8 @@ config.properties
 credentials.properties
 *.env
 .env
+.latest_email_body.html
+latest_email_raw.eml
 
 # Maven wrapper files (if applicable)
 .mvn/wrapper/maven-wrapper.jar
