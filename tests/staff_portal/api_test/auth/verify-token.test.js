@@ -1,0 +1,27 @@
+// AUTO-GENERATED from Postman collection
+require('dotenv').config();
+const api = require('../../utils/apiClient');
+const { expect } = require('chai');
+
+describe('Auth - verify-token', function(){
+  this.timeout(20000);
+  it('verify-token should return expected response', async function(){
+    try{
+      const res = await api.request({
+        method: 'GET',
+        url: `${process.env.API_BASE_URL}/v1/auth/verify-token/4ZLU22Q-R7VUVZQ-UBMOH4Q-CBYT4EY`,
+        headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWM0NTE5LWU1MGUtNGMyZi1hNzE0LWFhNGE5NTg1ZGE0ZCIsImVtYWlsIjoibG9rZW5kcmEuc0Bjb3JkZWxpYWNydWlzZXMuY29tIiwicGVybWlzc2lvbiI6W3sicGVybWlzc2lvbklkIjoiNDE5ZDEyMjUtYzBmZi00ZWVkLWFiZTctMDJiMGYyMTZmMjI2Iiwicm9sZUlkIjoiZWM3YjhmMTYtMzA4Mi00NzVkLWI0OTMtZjdmNzc4ZTE1ZTA2IiwiY3JlYXRlZCI6bnVsbCwiZWRpdCI6bnVsbCwidmlldyI6dHJ1ZSwiZGVsZXRlIjpudWxsLCJkb3dubG9hZCI6bnVsbH0seyJwZXJtaXNzaW9uSWQiOiIyMjM0NDY3MS1lNTJkLTRjNjItOTdmZS1lMGY4ZTZlOTlmODAiLCJyb2xlSWQiOiJlYzdiOGYxNi0zMDgyLTQ3NWQtYjQ5My1mN2Y3NzhlMTVlMDYiLCJjcmVhdGVkIjpudWxsLCJlZGl0Ijp0cnVlLCJ2aWV3Ijp0cnVlLCJkZWxldGUiOm51bGwsImRvd25sb2FkIjpudWxsfSx7InBlcm1pc3Npb25JZCI6IjVkZmRkNjQ4LTIxYjMtNGE1Yi1hOGFiLTliZTYwODU1NWMyNiIsInJvbGVJZCI6ImVjN2I4ZjE2LTMwODItNDc1ZC1iNDkzLWY3Zjc3OGUxNWUwNiIsImNyZWF0ZWQiOm51bGwsImVkaXQiOnRydWUsInZpZXciOnRydWUsImRlbGV0ZSI6bnVsbCwiZG93bmxvYWQiOm51bGx9LHsicGVybWlzc2lvbklkIjoiNjk5MDJhMWItMjEwNy00MTIyLWE2ZTctZDFlNTBkNWEyY2MxIiwicm9sZUlkIjoiZWM3YjhmMTYtMzA4Mi00NzVkLWI0OTMtZjdmNzc4ZTE1ZTA2IiwiY3JlYXRlZCI6bnVsbCwiZWRpdCI6dHJ1ZSwidmlldyI6dHJ1ZSwiZGVsZXRlIjpudWxsLCJkb3dubG9hZCI6bnVsbH0seyJwZXJtaXNzaW9uSWQiOiI4YTBjYzZiMS00ZDFlLTRkNGQtODEyMy0xYTZlMzAxOTcxOTgiLCJyb2xlSWQiOiJlYzdiOGYxNi0zMDgyLTQ3NWQtYjQ5My1mN2Y3NzhlMTVlMDYiLCJjcmVhdGVkIjp0cnVlLCJlZGl0Ijp0cnVlLCJ2aWV3Ijp0cnVlLCJkZWxldGUiOnRydWUsImRvd25sb2FkIjpudWxsfSx7InBlcm1pc3Npb25JZCI6ImRiYTVkNjU0LWEwNmEtNGQ3ZC04MWM3LWYyOTk1MTAyNjZiNyIsInJvbGVJZCI6ImVjN2I4ZjE2LTMwODItNDc1ZC1iNDkzLWY3Zjc3OGUxNWUwNiIsImNyZWF0ZWQiOm51bGwsImVkaXQiOnRydWUsInZpZXciOnRydWUsImRlbGV0ZSI6bnVsbCwiZG93bmxvYWQiOm51bGx9LHsicGVybWlzc2lvbklkIjoiYTcxNjA5ZmEtM2ZlZS00OWEzLTg2YjAtYjg3NDU1MzY2Nzk4Iiwicm9sZUlkIjoiZWM3YjhmMTYtMzA4Mi00NzVkLWI0OTMtZjdmNzc4ZTE1ZTA2IiwiY3JlYXRlZCI6bnVsbCwiZWRpdCI6bnVsbCwidmlldyI6dHJ1ZSwiZGVsZXRlIjpudWxsLCJkb3dubG9hZCI6bnVsbH0seyJwZXJtaXNzaW9uSWQiOiI5Y2MzNDJiNS0yOWY5LTQwYzAtYjQyMy1jMDBkYzFjZGI1MDciLCJyb2xlSWQiOiJlYzdiOGYxNi0zMDgyLTQ3NWQtYjQ5My1mN2Y3NzhlMTVlMDYiLCJjcmVhdGVkIjp0cnVlLCJlZGl0IjpudWxsLCJ2aWV3Ijp0cnVlLCJkZWxldGUiOm51bGwsImRvd25sb2FkIjpudWxsfSx7InBlcm1pc3Npb25JZCI6ImU3NTk4YzgyLTQzZWYtNGU4OC05NjYwLTRmMWM1ZjRmNzUwMyIsInJvbGVJZCI6ImVjN2I4ZjE2LTMwODItNDc1ZC1iNDkzLWY3Zjc3OGUxNWUwNiIsImNyZWF0ZWQiOnRydWUsImVkaXQiOnRydWUsInZpZXciOnRydWUsImRlbGV0ZSI6dHJ1ZSwiZG93bmxvYWQiOm51bGx9LHsicGVybWlzc2lvbklkIjoiZGRmYTc2MTQtNzkzMS00MzAwLWI1OGYtYTZkOGJkMjFhYWUwIiwicm9sZUlkIjoiZWM3YjhmMTYtMzA4Mi00NzVkLWI0OTMtZjdmNzc4ZTE1ZTA2IiwiY3JlYXRlZCI6dHJ1ZSwiZWRpdCI6dHJ1ZSwidmlldyI6dHJ1ZSwiZGVsZXRlIjpudWxsLCJkb3dubG9hZCI6dHJ1ZX1dLCJpYXQiOjE3MDgwNzM5NzIsImV4cCI6MTcwODA3NTE3Mn0.iiow17WdbbGQ903EtKZ0zENMT4VY2YY3wxOEZ3pWPsE"
+},
+      });
+      // basic assertions
+      expect(res).to.have.property('status');
+      expect([200,201,202]).to.include(res.status);
+      expect(res.data).to.exist;
+    } catch (err) {
+      // make test fail with useful message
+      throw new Error('Request failed: ' + (err.response ? JSON.stringify(err.response.data) : err.message));
+    }
+  });
+});

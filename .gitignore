@@ -1,0 +1,63 @@
+# Compiled code and build artifacts
+target/
+build/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE specific files
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+*.iml
+*.iws
+*.ipr
+*.swp
+
+# Dependency caches
+node_modules/
+vendor/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+
+# Log files and temporary files
+*.log
+*.tmp
+temp/
+logs/
+
+# Test reports and screenshots
+test-output/
+extent-reports/
+screenshots/
+failed_tests_screenshots/
+
+# Driver executables (if not managed by WebDriverManager)
+# Consider including if you manually manage drivers and don't want them in source control
+chromedriver.exe
+geckodriver.exe
+msedgedriver.exe
+IEDriverServer.exe
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Sensitive information (e.g., configuration files with credentials)
+config.properties
+credentials.properties
+*.env
+.env
+
+# Maven wrapper files (if applicable)
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle wrapper files (if applicable)
+.gradle/
+gradle-wrapper.jar
