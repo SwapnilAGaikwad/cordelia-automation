@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:staffFlow": "mocha tests/staff_portal/module/staffFlow.test.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "chai": "^6.2.0",
     "dotenv": "^17.2.3",
     "imap": "^0.8.19",
+    "imap-simple": "^5.1.0",
     "mailparser": "^3.9.0",
     "nodemailer": "^7.0.10",
     "selenium-webdriver": "^4.38.0"
