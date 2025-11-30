@@ -2,43 +2,38 @@ require('dotenv').config();
 const axios = require('axios');
 const { getOtpFromEmail } = require('./fetchOtpFromEmail');
 
-const BASE_URL = process.env.BASE_URL || 'https://api-staff.stage.cordeliacruises.com/v1';
-
 const api = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  timeout: 30000
+  baseURL: process.env.API_BASE_URL,
+  headers: { 'Content-Type': 'application/json' },
+  timeout: 30000,
 });
 
-/**
- * Login with OTP and set token in axios instance
- * @param {string} email - user email
- */
 async function loginWithOtp(email) {
-  // 1️⃣ Send OTP
+  // Send OTP
   await api.post('/auth/send-otp', { email });
-  console.log('OTP sent to email:', email);
+  console.log('🔹 OTP sent to email:', email);
 
-  // 2️⃣ Get OTP from email
-  const otp = await getOtpFromEmail();
-  console.log('Fetched OTP:', otp);
+  // Fetch OTP from email
+  const otp = await getOtpFromEmail(email);
+  console.log('🔹 OTP fetched:', otp);
 
-  // 3️⃣ Login
+  // Login
   const res = await api.post('/auth/login', { email, otp });
-  const token = res.data.token;
+  const token = res.data.accessToken || res.data.token;
 
-  // 4️⃣ Set token for future requests
+  // Set token for future requests
   api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  console.log('Login successful! Token set in apiClient');
+  console.log('🔹 Login successful, token set');
 
   return token;
 }
 
-/**
- * Helper API calls
- */
+// Example helper API calls
+async function getStaff() {
+  const res = await api.get('/staff');
+  return res.data;
+}
+
 async function getOffers() {
   const res = await api.get('/cms/offers/portal?type=staff');
   return res.data;
@@ -54,16 +49,11 @@ async function getItineraries() {
   return res.data;
 }
 
-async function getStaff() {
-  const res = await api.get('/staff');
-  return res.data;
-}
-
 module.exports = {
   api,
   loginWithOtp,
+  getStaff,
   getOffers,
   getEnquiries,
-  getItineraries,
-  getStaff
+  getItineraries
 };

@@ -86,7 +86,7 @@ async function sendResultEmail(subject, stepsLog) {
 
   let info = await transporter.sendMail({
     from: `"Cordelia Automation" <${process.env.EMAIL_USER}>`,
-    to: `${process.env.EMAIL}`
+    to: 'swapnil.gaikwad@cordeliacruises.com, siddhesh.pawar@cordeliacruises.com',
     subject,
     text: stepsLog.join('\n'),
     html,
